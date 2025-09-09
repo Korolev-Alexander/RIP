@@ -1,0 +1,15 @@
+{{define "content"}}
+<div class="device-detail">
+    <img src="/static/img/{{.Device.Image}}" style="max-width:200px;float:left;margin-right:40px;">
+    <div>
+        <h2>{{.Device.Name}} — {{.Device.Model}}</h2>
+        <div>Мощность: {{.Device.PowerMin}}-{{.Device.PowerMax}} Вт</div>
+        <div>{{.Device.Description}}</div>
+        <div>Протокол: {{.Device.Protocol}}</div>
+        <br>
+        <a class="device-btn-purple" href="/requests/{{.Device.ID}}">Перейти к расчету</a>
+        <a class="device-btn-gray" href="/devices">Назад</a>
+    </div>
+    <div style="clear:both"></div>
+</div>
+{{end}}

@@ -1,0 +1,107 @@
+body {
+    width: 1920px; min-height: 1080px;
+    background: rgba(255,255,255,1);
+    font-family: 'Inter', Arial, sans-serif;
+    margin: 0; padding: 0;
+}
+header {
+    margin: 40px;
+    display: flex;
+    align-items: center;
+}
+
+.card-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 36px;
+    margin-left: 80px;
+}
+.device-card {
+    border-radius: 25px;
+    box-shadow: 0px 4px 4px 0px rgba(0,0,0,0.25);
+    background: linear-gradient(180deg, rgba(214,203,255,0.15),rgba(214,203,255,0.25) 40%,rgba(214,203,255,1) 71%);
+    opacity: 0.95;
+    padding: 30px 20px 20px 20px;
+    width: 330px;
+    min-height: 350px;
+    box-sizing: border-box;
+    position: relative;
+}
+.protocol-badge {
+    position: absolute;
+    top: 18px;
+    left: 18px;
+    background: rgba(87, 0, 255, 0.65);
+    color: #fff;
+    border-radius: 100px;
+    font-size: 14px;
+    padding: 3px 15px;
+}
+.device-title {
+    font-family: Inter;
+    font-size: 18px;
+    font-weight: 700;
+    color: #000;
+    margin-top: 10px;
+    margin-bottom: 3px;
+}
+.device-desc {
+    font-family: Inter;
+    font-size: 18px;
+    font-weight: 300;
+    color: #000;
+    margin-bottom: 22px;
+}
+.device-buttons {
+    display: flex;
+    gap: 10px;
+}
+.device-btn-gray {
+    display:inline-block;
+    padding:10px 22px;
+    background: rgba(220, 200, 255, 0.59);
+    border-radius: 16px;
+    color:#000;
+    font-size:16px;
+    text-align:center;
+    text-decoration: none;
+}
+.device-btn-purple {
+    display:inline-block;
+    padding:10px 22px;
+    background: linear-gradient(90deg, rgba(131,9,255,0.75) 0%, rgba(169,0,171,0.75) 100%);
+    border-radius: 16px;
+    color:#fff;
+    font-size:16px;
+    text-align:center;
+    text-decoration: none;
+}
+
+.search-block {
+    margin: 30px 0 36px 60px;
+    padding: 18px;
+    background: rgba(220,200,255,0.59);
+    border-radius: 35px;
+    width: 1534px;
+    height: 86px;
+}
+.search-block input[type="text"] {
+    width: 1230px;
+    height: 69px;
+    background: rgba(255,255,255,0.59);
+    border-radius: 35px;
+    border: none;
+    font-size: 18px;
+    margin-right: 10px;
+    padding: 12px 24px;
+}
+
+.search-block button {
+    border-radius: 30px;
+    border: none;
+    font-size: 18px;
+    background: #8309ff;
+    color: #fff;
+    padding: 10px 20px;
+    cursor: pointer;
+}

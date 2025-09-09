@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>{{block "title" .}}Smart Home Devices{{end}}</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body>
+    <header>
+        <a href="/devices">
+            <img src="/static/img/home.png" alt="Домой" width="62" style="background:rgba(169,0,171,0.75);border-radius:10px;">
+        </a>
+    </header>
+    <main>
+        {{block "content" .}}{{end}}
+    </main>
+</body>
+</html>
