@@ -1,15 +1,16 @@
 package data
 
 type Device struct {
-	ID          int
-	Name        string
-	Model       string
-	PowerMin    float64 // минимальная мощность, Вт
-	PowerMax    float64 // максимальная мощность, Вт
-	AvgHours    float64 // по умолчанию: часов в сутки работы
-	Image       string  // имя картинки
-	Description string
-	Protocol    string
+	ID             int
+	Name           string
+	Model          string
+	AvgDataRate    float64 // Средняя скорость передачи данных, Кбит/с
+	DataPerHour    float64 // Объем данных в час, Кб/ч
+	Image          string
+	Description    string
+	DescriptionAll string
+	Protocol       string
+	Specs          map[string]string // Характеристики
 }
 
 var Devices = []Device{
@@ -17,34 +18,101 @@ var Devices = []Device{
 		ID:          1,
 		Name:        "Хаб",
 		Model:       "Яндекс Хаб",
-		PowerMin:    10,
-		PowerMax:    12,
-		AvgHours:    24,
+		AvgDataRate: 5120,
+		DataPerHour: 56.25, // (1350 МБ/сутки / 24) * 1024 ≈ 57600 Кб/ч → 56.25 Кб/ч
 		Image:       "hub.png",
 		Description: "Умный пульт Яндекс Хаб для устройств",
-		Protocol:    "Wi-Fi",
+		DescriptionAll: `Умный пульт Яндекс Хаб для управления всеми устройствами умного дома. 
+Центральное устройство системы, координирующее работу всех подключенных девайсов.`,
+		Protocol: "Wi-Fi",
+		Specs: map[string]string{
+			"Тип":           "Центр управления",
+			"Питание":       "От сети",
+			"Подключение":   "Wi-Fi, Bluetooth",
+			"Управление":    "Голосовое, сенсорное",
+			"Совместимость": "Умный дом Яндекса",
+			"Размеры":       "120 × 120 × 50 мм",
+		},
 	},
 	{
 		ID:          2,
 		Name:        "Лампочка",
 		Model:       "Яндекс, E27",
-		PowerMin:    8,
-		PowerMax:    10,
-		AvgHours:    5,
+		AvgDataRate: 8,
+		DataPerHour: 0.5,
 		Image:       "lamp.png",
 		Description: "Умная лампочка Яндекс, E27",
-		Protocol:    "Wi-Fi",
+		DescriptionAll: `Умная Яндекс лампочка позволяет дистанционно управлять освещением в комнате или доме. 
+Поддержка Wi-Fi позволяет лампе работать в Умном доме Яндекса и реагировать на команды, 
+отданные по мобильному приложению или напрямую голосовому помощнику Алисе.`,
+		Protocol: "Wi-Fi",
+		Specs: map[string]string{
+			"Тип":            "филаментная",
+			"Умная лампа":    "с возможностью управления по Wi-Fi",
+			"Тип цоколя":     "E27",
+			"Напряжение":     "200-240 В",
+			"Экосистема":     "Умный дом Яндекса",
+			"Протокол связи": "Matter Over Wifi",
+			"Требуется шлюз": "да",
+			"Регулировка":    "яркости",
+			"Страна бренда":  "Россия",
+		},
 	},
 	{
 		ID:          3,
 		Name:        "Розетка",
-		Model:       "YNDX-00540",
-		PowerMin:    1,
-		PowerMax:    2,
-		AvgHours:    24,
+		Model:       "YNDX-00340",
+		AvgDataRate: 2,
+		DataPerHour: 0.1,
 		Image:       "socket.png",
-		Description: "Умная розетка Яндекс",
-		Protocol:    "Wi-Fi",
+		Description: "Умная розетка Яндекс YNDX-00340",
+		DescriptionAll: `Умная розетка для дистанционного управления электроприборами. 
+Позволяет включать и выключать устройства по расписанию или голосовой команде.`,
+		Protocol: "Wi-Fi",
+		Specs: map[string]string{
+			"Тип":            "Розетка умная",
+			"Макс. нагрузка": "16 А",
+			"Напряжение":     "220 В",
+			"Управление":     "через приложение",
+			"Защита":         "от перегрузки",
+		},
 	},
-	// ...потом дополню
+	{
+		ID:          4,
+		Name:        "Датчик",
+		Model:       "Aqara Motion Sensor P1",
+		AvgDataRate: 5,
+		DataPerHour: 0.3,
+		Image:       "sensor.png",
+		Description: "Датчик движения Aqara Motion Sensor P1",
+		DescriptionAll: `Беспроводной датчик движения для автоматизации освещения и безопасности. 
+Реагирует на движение в помещении и отправляет уведомления.`,
+		Protocol: "Zigbee",
+		Specs: map[string]string{
+			"Тип":                 "Датчик движения",
+			"Питание":             "Батарейка CR2032",
+			"Радиус действия":     "7 м",
+			"Угол обзора":         "170°",
+			"Рабочая температура": "-10°C до +50°C",
+		},
+	},
+	{
+		ID:          5,
+		Name:        "Выключатель",
+		Model:       "Яндекс, 2 клавиши",
+		AvgDataRate: 3,
+		DataPerHour: 0.2,
+		Image:       "switch.png",
+		Description: "Умный беспроводной выключатель Яндекс, 2 клавиши",
+		DescriptionAll: `Беспроводной выключатель для управления умным освещением. 
+Не требует прокладки проводов, работает от батареек.`,
+		Protocol: "Bluetooth",
+		Specs: map[string]string{
+			"Тип":               "Выключатель беспроводной",
+			"Количество клавиш": "2",
+			"Питание":           "Батарейки AAA",
+			"Срок работы":       "до 2 лет",
+			"Материал":          "Пластик",
+		},
+	},
 }

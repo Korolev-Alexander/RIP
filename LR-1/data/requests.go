@@ -1,13 +1,22 @@
 package data
 
 type DeviceRequest struct {
-	DeviceID       int     // ID устройства
-	UsedCount      int     // Количество устройств (пользовательское)
-	CustomHoursDay float64 // Пользовательское число часов работы в сутки
-	// уточнить что мы вообще расчитываем электро трафик или информационный?
+	DeviceID int
+	Quantity int
 }
 
 type Request struct {
 	ID             int
-	DeviceRequests []DeviceRequest // устройства в заявке
+	Address        string
+	DeviceRequests []DeviceRequest
+}
+
+// Предзаполненная заявка для демонстрации
+var CurrentRequest = &Request{
+	ID:      1,
+	Address: "ул. Примерная, д. 1, кв. 5",
+	DeviceRequests: []DeviceRequest{
+		{DeviceID: 2, Quantity: 3}, // 3 лампочки
+		{DeviceID: 4, Quantity: 2}, // 2 датчика
+	},
 }

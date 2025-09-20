@@ -1,0 +1,51 @@
+{{define "content"}}
+<div class="request-container">
+    <h1 class="request-title">Расчет:</h1>
+    
+    <div class="address-section">
+        <h2>Адрес дома, квартиры:</h2>
+        <p class="address-value">{{.Request.Address}}</p>
+    </div>
+
+    {{if .Request.DeviceRequests}}
+    <div class="devices-section">
+        <h2>Устройства в заявке:</h2>
+        {{range $dr := .Request.DeviceRequests}}
+            {{range $d := $.Devices}}
+                {{if eq $d.ID $dr.DeviceID}}
+                <div class="request-item">
+                    <div class="item-image-frame">
+                        <img src="/static/img/{{$d.Image}}" alt="{{$d.Name}}" class="item-image">
+                    </div>
+                    <div class="item-info">
+                        <h3>{{$d.Name}}</h3>
+                        <p>{{$d.Model}}</p>
+                    </div>
+                    <div class="item-quantity">
+                        <div class="quantity-control">
+                            <button class="qty-btn minus">-</button>
+                            <span class="qty-value">{{$dr.Quantity}}</span>
+                            <button class="qty-btn plus">+</button>
+                        </div>
+                    </div>
+                </div>
+                {{end}}
+            {{end}}
+        {{end}}
+    </div>
+    {{else}}
+    <div class="empty-cart">
+        <h2>Заявка пуста</h2>
+        <p>Демонстрационная страница расчета</p>
+    </div>
+    {{end}}
+
+    <div class="calculation-section">
+        <button class="btn-calculate">Рассчитать</button>
+        <div class="traffic-result">
+            <span>Объем трафика:</span>
+            <span class="traffic-value">1 Kб/ч</span>
+        </div>
+    </div>
+</div>
+{{end}}

@@ -1,22 +1,29 @@
 {{define "content"}}
-<div class="search-block">
-    <form method="GET" action="/devices">
-        <input type="text" name="search" placeholder="Поиск" value="{{.Search}}">
-        <button type="submit">🔍</button>
-    </form>
-</div>
-<div class="card-grid">
-    {{range .Devices}}
+<div class="devices-container">
+    <!-- Поиск -->
+    <div class="search-section">
+        <form action="/devices" method="GET">
+            <input type="text" name="search" placeholder="Поиск" value="{{.Search}}">
+        </form>
+    </div>
+
+    <!-- Сетка устройств -->
+    <div class="devices-grid">
+        {{range .Devices}}
         <div class="device-card">
-            <div class="protocol-badge">{{.Protocol}}</div>
-            <img src="/static/img/{{.Image}}" alt="{{.Name}}" width="120">
-            <div class="device-title">{{.Name}}</div>
-            <div class="device-desc">{{.Description}}</div>
+            <img src="/static/img/{{.Image}}" alt="{{.Name}}" class="device-image">
+            <h3 class="device-name">{{.Name}}</h3>
+            <p class="device-description">{{.Description}}</p>
             <div class="device-buttons">
-                <a class="device-btn-gray" href="/devices/{{.ID}}">Подробнее</a>
-                <a class="device-btn-purple" href="/requests/{{.ID}}">Расчет</a>
+                <a href="/devices/{{.ID}}" class="btn-details">Подробнее</a>
+                <button class="btn-add">Добавить</button>
             </div>
         </div>
-    {{end}}
+        {{else}}
+        <div class="no-devices">
+            <p>Устройства не найдены</p>
+        </div>
+        {{end}}
+    </div>
 </div>
 {{end}}
