@@ -29,7 +29,7 @@ func main() {
 	http.HandleFunc("/devices", devicesHandler)
 	http.HandleFunc("/devices/", deviceDetailHandler)
 	http.HandleFunc("/request", requestHandler)
-	http.HandleFunc("/request/", requestHandler) // ← ДОБАВЬТЕ ЭТУ СТРОЧКУ!
+	http.HandleFunc("/request/", requestHandler)
 
 	http.ListenAndServe(":8080", nil)
 }

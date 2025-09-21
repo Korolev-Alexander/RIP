@@ -494,3 +494,106 @@ header {
     color: #666;
 }
 
+
+
+/* -------------------------------------------------------------------------------------------------*/
+
+/* Счетчик корзины - крупнее и у нижнего правого края */
+.cart-btn {
+    position: relative;
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+}
+
+.cart-count {
+    position: absolute;
+    bottom: -5px;    /* Смещаем к нижнему краю */
+    right: -8px;     /* Смещаем правее */
+    background: rgba(87, 0, 255, 1); /* Фиолетовый фон */
+    color: white;
+    border-radius: 50%;
+    width: 24px;     /* Увеличиваем размер */
+    height: 24px;    /* Увеличиваем размер */
+    text-align: center;
+    line-height: 24px; /* Центрируем по высоте */
+    font-size: 14px;   /* Увеличиваем цифру */
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* Убираем тень */
+    box-shadow: none;
+}
+
+/* Базовые стили кнопок */
+.nav-btn {
+    padding: 0.8rem 1.5rem;
+    color: white;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 1.1rem;
+    border-radius: 25px;
+    transition: background-color 0.3s ease;
+    position: relative;
+}
+
+.nav-btn:hover {
+    background-color: rgba(87, 0, 255, 0.3); /* Полупрозрачная подсветка */
+}
+
+
+
+/* -------------------------------------------------------------------------------------------------*/
+
+
+/* Блок расчета трафика для каждого устройства */
+.traffic-calculation {
+    margin-top: 1rem;
+    padding: 0.8rem;
+    background: rgba(87, 0, 255, 0.05);
+    border-radius: 12px;
+    border-left: 3px solid rgba(87, 0, 255, 0.3);
+}
+
+.traffic-line {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 0.3rem;
+    font-size: 14px;
+}
+
+.traffic-line.total {
+    font-weight: 600;
+    color: rgba(87, 0, 255, 1);
+    margin-top: 0.5rem;
+    padding-top: 0.5rem;
+    border-top: 1px solid rgba(87, 0, 255, 0.2);
+}
+
+.traffic-number {
+    font-weight: 500;
+    color: rgba(87, 0, 255, 0.8);
+}
+
+/* Общий трафик */
+.traffic-result {
+    font-size: 18px;
+    font-weight: 500;
+    color: black;
+}
+
+.traffic-value {
+    font-weight: bold;
+    color: rgba(87, 0, 255, 1);
+    margin-left: 0.5rem;
+}
+
+/* Адаптируем контейнер для quantity */
+.item-quantity {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    min-width: 150px;
+}

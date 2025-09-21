@@ -8,7 +8,10 @@
 <body>
     <header>
         <a href="/devices" class="nav-btn">Главная</a>
-        <a href="/request" class="nav-btn">Корзина</a>
+        <a href="/request" class="nav-btn cart-btn">
+            Корзина
+            <span class="cart-count">5</span> <!-- Исправлено на 5 -->
+        </a>
     </header>
     <main>
         {{block "content" .}}{{end}}
